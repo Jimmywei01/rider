@@ -1,11 +1,11 @@
 const path = require('path')
 
 module.exports = {
-  // configureWebpack: (config)=>{
-  //   if (process.env.NODE_ENV === 'production') {
-  //     config.optimization.minimizer[0].options.terserOptions.compress.drop_console = true
-  //   }
-  // },
+  configureWebpack: (config)=>{
+    if (process.env.NODE_ENV === 'production') {
+      config.optimization.minimizer[0].options.terserOptions.compress.drop_console = true
+    }
+  },
   outputDir: path.resolve(__dirname, '../server/public'),
   devServer: {
     open: true,

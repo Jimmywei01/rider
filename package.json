@@ -4,7 +4,7 @@
   "description": "",
   "main": "server/index.js",
   "scripts": {
-    "start": "npx sequelize-cli db:migrate /app/config/config.json && node server/index.js",
+    "start": "npx sequelize-cli db:migrate WORKDIR /app/config && node server/index.js",
     "nodeStar": "node server/index.js",
     "nodeServe": "nodemon server/index.js"
   },

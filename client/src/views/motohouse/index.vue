@@ -1,5 +1,9 @@
 <template>
-  <div class='motoHouseArea'>
+  <div
+  class='motoHouseArea'
+  v-loading="loading"
+  element-loading-text="加载中"
+  element-loading-background="rgba(239, 239, 239, 0.8)">
     <FilterMoto
       @update:filtMotoStore='handleFilterMotoStore'
       @update:filtMotoCatalog='handleFilterMotoCatalog'
@@ -53,7 +57,6 @@
           >
           <template slot-scope="{row}">
             <el-button
-            v-loading="loading"
               size="mini"
               type="primary"
               class="btn"

@@ -14,7 +14,6 @@ class Login extends Proxy {
     @desc 註冊傳給 proxy-base
   */
   userLogin (parameters) {
-    console.log('params:', parameters)
     return this.submitPost(`${this.routerpoint}`, parameters)
   }
 }

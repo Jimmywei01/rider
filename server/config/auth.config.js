@@ -1,5 +1,3 @@
-// const env = process.env.NODE_ENV || 'development';
-// const config = require(__dirname + '/../config/config.json')[env];
 module.exports = {
   screat: process.env.SCREAT,
   IMGUR_CUSTOMER_KEY: process.env.IMGUR_CUSTOMER_KEY,

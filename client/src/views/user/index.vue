@@ -177,7 +177,7 @@ export default {
               if (error.data) {
                 this.$swal.fire({
                   icon: 'error',
-                  title: error.data.message || '連線有問題'
+                  title: '檔案過大'
                 })
               }
             })

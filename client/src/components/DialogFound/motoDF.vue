@@ -135,7 +135,7 @@ export default {
         this.$message.warning('只支持jpg或png格式圖片')
       }
       if (!isLt1M) {
-        this.$message.warning('請上傳5MB以內的圖片！')
+        this.$message.warning('請上傳1MB以內的圖片！')
       }
       return (isJPG || isJPG2 || isPNG) && isLt1M
     },
@@ -174,16 +174,18 @@ export default {
               this.$swal.fire({
                 icon: 'success',
                 title: res.message
+              }).then(res => {
+                // 上傳圖片後清空
+                this.$refs.upload.clearFiles()
+                this.$emit('update:updateData', this.form)
               })
-              this.$refs.upload.clearFiles()
-              this.$emit('update:updateData', this.form)
             })
             .catch(err => {
               this.$emit('update:updateLoading', false)
               if (err.data) {
                 this.$swal.fire({
                   icon: 'error',
-                  title: err.data.message
+                  title: '檔案過大'
                 })
               }
             })
@@ -201,15 +203,18 @@ export default {
               this.$swal.fire({
                 icon: 'success',
                 title: '修改成功'
+              }).then(res => {
+                // 上傳圖片後清空
+                this.$refs.upload.clearFiles()
+                this.$emit('update:updateData', this.form)
               })
-              this.$refs.upload.clearFiles()
-              this.$emit('update:updateData', this.form)
             })
             .catch(err => {
+              this.$emit('update:updateLoading', false)
               if (err.data) {
                 this.$swal.fire({
                   icon: 'error',
-                  title: err.data.message
+                  title: '檔案過大'
                 })
               }
             })

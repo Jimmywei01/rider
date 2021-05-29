@@ -1,9 +1,5 @@
 <template>
-  <div
-  v-loading="loading"
-  element-loading-text="加载中"
-  element-loading-background="rgba(239, 239, 239, 0.8)"
-  class='motoHouseArea'>
+  <div class='motoHouseArea'>
     <FilterMoto
       @update:filtMotoStore='handleFilterMotoStore'
       @update:filtMotoCatalog='handleFilterMotoCatalog'

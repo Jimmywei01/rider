@@ -5,7 +5,7 @@
   "main": "server/index.js",
   "scripts": {
     "migrate": "npx sequelize-cli db:migrate",
-    "start": "npm run migrate && node server/index.js",
+    "start": "npx sequelize-cli db:migrate && node server/index.js",
     "nodeStar": "node server/index.js",
     "nodeServe": "nodemon server/index.js"
   },

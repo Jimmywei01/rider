@@ -3,7 +3,7 @@ const qs = require('qs')
 const key = require('../config/auth.config')
 
 /**
-  @desc imgurAPI      第三方圖片空間 imgur
+  @desc imgurAPI 第三方圖片空間 imgur
 */
 async function imgurAPI (image) {
       let imgUrl = ''

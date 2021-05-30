@@ -36,5 +36,5 @@ npm run start
 ├── .gitignore             # git 忽略配置
 ├── .sequelizerc           # sequelizerc Heroku 檔案連接配置
 ├── package.json           # package.json
-└──  README.md             # 規範說明
+└── README.md             # 規範說明
 ```

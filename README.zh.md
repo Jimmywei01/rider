@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="180" src="./Orange_logo.jpg">
+  <img width="180px" src="./Orange_logo.jpg">
 </p>
 
 <p align="center">

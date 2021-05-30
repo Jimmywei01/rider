@@ -73,6 +73,8 @@ export default {
   display: flex;
   flex-direction: column;
   box-sizing : border-box;
+  margin: 0 auto;
+  max-width: none;
 }
 
 .header-container {

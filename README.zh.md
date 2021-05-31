@@ -42,7 +42,7 @@
 
 
 ### Editor Dashboard
-
+![editor](https://github.com/Jimmywei01/rider/blob/master/AnyConv.com__rider_editor2.gif)
 
 ### Admin Dashboard
 

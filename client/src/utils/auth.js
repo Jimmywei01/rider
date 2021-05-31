@@ -50,7 +50,7 @@ export function parserToken (token) {
 */
 // 判斷進入 router 前
 router.beforeEach(async (to, from, next) => {
-  let whitelist = ['/login', '/register', '/', '/moto', '/motoDetail']
+  let whitelist = []
   const hasToken = store.getters.jwt
   const isLogin = await getToken()
   const { identity } = store.getters.user
@@ -114,14 +114,15 @@ router.beforeEach(async (to, from, next) => {
     }
     // 沒有 isLogin（cookie）值，要規定 沒權限＆一般 User 可進入的 router -> 白名單頁面（找目前 router 在不在 whitelist 裡面）
     /* 白名單頁面可訪問 */
-  } else if (whitelist.find(i => to.path.search(i) !== -1)) {
-    // 白名單顯示全部 moto 資料
-    await store.dispatch('motoHouse/getMoto')
-    await store.dispatch('order/getOrder')
-    await store.dispatch('store/getStore')
-    next()
   } else {
-    /* 其他無權訪問的頁面將重定向到首頁 */
-    next({ path: '/' })
+    whitelist = ['Login', 'Register', 'HomePage', 'Moto', 'MotoDetail']
+    if (whitelist.find(i => to.name.search(i) !== -1)) {
+      await store.dispatch('motoHouse/getMoto')
+      await store.dispatch('order/getOrder')
+      await store.dispatch('store/getStore')
+      next()
+    } else {
+      next({ path: '/' })
+    }
   }
 })

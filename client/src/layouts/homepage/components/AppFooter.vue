@@ -8,7 +8,7 @@
         <div>前往體驗</div>
       </div>
       <div>
-        <a href="http://github.com/Jimmywei01">關於專案</a>
+        <a href="https://github.com/Jimmywei01/rider">關於專案</a>
       </div>
     </div>
   </div>

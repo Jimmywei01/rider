@@ -18,18 +18,20 @@
               <i class="el-icon-caret-bottom" />
             </div>
             <el-dropdown-menu slot="dropdown">
-              <router-link to='/'>
                 <el-dropdown-item>
-                  <span style="display:block;">HomeDesk</span>
+                  <router-link to='/'>
+                    <span style="display:block;">HomeDesk</span>
+                  </router-link>
                 </el-dropdown-item>
-              </router-link>
-              <router-link to='dashboard'>
-                <el-dropdown-item>
+              <el-dropdown-item>
+                <router-link to='dashboard'>
                   <span style="display:block;">DashBoard</span>
-                </el-dropdown-item>
-              </router-link>
+                 </router-link>
+              </el-dropdown-item>
               <el-dropdown-item divided @click.native="logout">
-                <span style="display:block; text-align: center;">Log Out</span>
+                <router-link to='/'>
+                  <span style="display:block; text-align: center;">Log Out</span>
+                </router-link>
               </el-dropdown-item>
             </el-dropdown-menu>
           </el-dropdown>

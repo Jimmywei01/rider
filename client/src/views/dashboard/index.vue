@@ -1,5 +1,5 @@
 <template>
-  <div class='container'>
+  <div class='dashboard_container'>
     <PanelGroup/>
     <BarChart/>
   </div>
@@ -18,7 +18,7 @@ export default {
 </script>
 
 <style lang="scss">
-  .container {
+.dashboard_container {
     max-width: 1350px;
   }
 

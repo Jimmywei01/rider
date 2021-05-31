@@ -217,6 +217,10 @@ export default {
 </script>
 
 <style scoped>
+.container {
+  margin: 0 auto;
+  max-width: none;
+}
 
 .user-avatar {
   width: 500px;

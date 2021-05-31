@@ -6,9 +6,9 @@
         <p>{{form.username}}</p>
       </div>
       <div class="box-option">
-        <div v-if="this.identity !== 'user'" @click="dashboard">後台管理</div>
         <div @click="userInfo">帳戶設定</div>
         <div @click="userOrder">訂單管理</div>
+        <div v-if="this.identity !== 'user'" @click="dashboard">後台管理</div>
       </div>
     </div>
   </div>

@@ -224,7 +224,7 @@ export default {
 
 .user-avatar {
   width: 500px;
-  height: 450px;
+  height: 400px;
   padding: 25px;
 }
 

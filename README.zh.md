@@ -39,13 +39,14 @@
 ## 預覽
 
 ### User Interface
-
+<img src="https://github.com/Jimmywei01/rider/blob/master/user-demo.gif" width="50%">
 
 ### Editor Dashboard
-![editor](https://github.com/Jimmywei01/rider/blob/master/AnyConv.com__rider_editor2.gif)
+<img src="https://github.com/Jimmywei01/rider/blob/master/editor-demo.gif" width="50%">
+
 
 ### Admin Dashboard
-
+<img src="https://github.com/Jimmywei01/rider/blob/master/admin-demo.gif" width="50%">
 
 
 ## User Story

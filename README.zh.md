@@ -35,9 +35,44 @@
 
 - [在線預覽](https://riderwing.herokuapp.com/)
 
-## 功能
 
-前端
+## 預覽
+
+### User Interface
+
+
+### Editor Dashboard
+
+
+### Admin Dashboard
+
+
+
+## User Story
+**前端 Homepage**
+- User 依照不同權限登入，顯示對應頁面＆選項
+- User 可以對帳戶資料進行編輯
+- User 可以看到訂單資料
+- User 可以依照不同車款機車、取車商店、時間進行預定
+
+**前端 Dashboard**
+- User 依照不同權限登入，顯示對應頁面＆選項
+- User 可以對會員、訂單、車款、商店進行新增、修改、刪除、查詢篩選
+- 頁面可以顯示目前會員、機車車款、訂單、商店的數量分析
+- 頁面可以顯示目前會員、機車車款、訂單、商店的相關圖表
+
+**後端**
+- 使用 JSON Web Tokens 對 RESTful API 進行驗證
+- 使用 Imgur API 進行圖片上傳功能
+- 使用 bcrypt 進行加密
+- 使用 sequelize 進行 ORM 對 Mysql 操作新增、修改、刪除、查詢
+
+**平台**
+- 使用 gitHub 版控並自動部署至 Heroku 顯示頁面
+
+
+## 功能
+**前端**
 - 登入
 - 註冊
 - vuex 資料管理
@@ -46,12 +81,52 @@
 - 權限驗證
 - Dashboard
 
-後端
+**後端**
 - JWT
 - ORM 操作
 - Mysql 串接
-- restful API
+- RESTful API
 - Imgur API
 
-Heroku 平台
-- heroku pipeline for github
+
+## Getting started
+
+**User**
+- Log in
+  - email: user@gmail.com
+  - password: 123123qwe
+
+**Editor**
+- Log in
+  - email: editor@gmail.com
+  - password: 123123qwe
+
+**Admin**
+- Log in
+  - email: admin@gmail.com
+  - password: 123123qwe
+
+### Develop
+```
+# clone the project
+git clone git@github.com:Jimmywei01/rider.git
+
+# enter the project directory
+cd rider
+cd client
+
+# install dependency
+npm install
+
+# develop client
+npm run server
+
+# develop server
+npm run nodeServer
+```
+瀏覽器：http://localhost:8082/
+
+### Build
+```
+npm run build
+```

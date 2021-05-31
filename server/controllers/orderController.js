@@ -1,70 +1,4 @@
 
-/*
-新增 add api
-
-db 新增 OrderItem 紀錄 Order 狀態、Order 數量
-id
-commentNumber
-orderItemStatus
-StoreId
-MotoHouseId
-OrderId
-
-前台 addOrder
-0.設定 Order 要關聯使用的 UserId
-  -> user Vuex 登入資訊取得 -> 設計前台要回來改
-
-1.設定 Order 要關聯使用的 table Id
-  給 Order 的 StoreId
-  -> 用 orderLocal-> 用來取得當前輸入的 Store 資料 -> 在取得 StoreId
-
-  給 order 的 motoHouseId
-  -> 用 motoStore 取得當前輸入的 MotoHouse 資料 -> 在取得 MotoHouseId
-  -> 當前 motoHouse 的存量
-
-2.數量加總 -> 計算 未完成訂單 的數量（只要是一進來就是一筆訂單）
-  關聯撈出對應 MotoHouseId 的未完成 data
-  把舊的 commentNumber 數量做加總
-  最新總和 = 舊的 commentNumber 數量 + 當前傳進來的數量
-
-3.判斷 motoHouse 初始設定量 > 總和數量
-  有，新增 order訂單、store 訂單數量+1（包含完成、未完成）、更新 OrderItem db
-  無，超出可預訂數量
-
-4.給 order 的 OrderItemId
-  用 order 排序方式找出最新的一筆 id，賦予給 Order
-
-<-------------------------------------->
-一進頁面查詢訂單 get api
-前台 addOrder
-用 UserId StoreId motoHouseId 關聯需要顯示的欄位
-
-User = db.user
-Store = db.store
-Motohouse = db.motohouse
-Order = db.order
-<-------------------------------------->
-編輯 edit api
-後台編輯
-orderStatus 變更     -> 不計算訂單量
-orderCarNumbers 變更 -> 重新計算總和
-1.計算所有 只要有使用當下的 motoHouse ＆ 未完成的預定總和數量
-    關聯撈出對應 motoHouseId 的未完成 data
-2.把舊的 commentNumber 數量做加總
-3.總和 = 舊的 commentNumber 數量 + 當前傳進來的 orderCarNumbers
-4.判斷 motoHouse 初始設定量 > 總和數量 ?
-  有，更新 order、更新 orderItem
-  無，超出可預訂數量
-
-<-------------------------------------->
-刪除 delete api
-
-動作
-後台刪除 Order -> 前台同步（重新撈取）
-後台刪除 OrderItem
-motoHouse 數量不用增加（因為是固定的）
-更新 Store -> storeOrder 訂單量 -1
-*/
 const moment = require('moment')
 const db = require("../models")
 const User = db.user
@@ -92,7 +26,7 @@ Order.belongsTo(OrderItem)
 orderController = {
   /**
   @desc 新增 order ＆ 同時發送 addOrder addOrderItem
-  @params 
+  @params
     motoStore        -> 車廠
     motoCatalog      -> 車款
     orderCarNumbers  -> 數量
@@ -150,7 +84,7 @@ orderController = {
     /*
     撈出未完成數量
     用 OrderItem 關聯撈出 -> 計算 未完成＆對應 motoHouseId 的數量
-    */ 
+    */
     let oldOrderItem = await OrderItem.findAll({
       where: {
         MotoHouseId: motoHouse[0].id,
@@ -303,7 +237,7 @@ orderController = {
     /*
     撈出未完成數量
     用 OrderItem 關聯撈出 -> 計算 未完成＆對應 motoHouseId 的數量
-    */ 
+    */
     let oldOrderItem = await OrderItem.findAll({
       where: {
         MotoHouseId: MotoHouseId,
@@ -313,7 +247,7 @@ orderController = {
     /*
     計算未完成的數量
     把 oldOrderItem 數量做加總
-    */ 
+    */
     function sumOldNumber() {
       let num = 0
       oldOrderItem.forEach((item, index, array) => {

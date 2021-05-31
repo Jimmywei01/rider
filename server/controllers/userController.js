@@ -8,11 +8,9 @@ const imgurAPI = require('../api/axios')
 const User = db.user
 const saltRounds = 10
 const EXPIRES_IN = 300 * 1000
-/**
-@desc  註冊 & 登入 回覆處理
-*/
-userController = {
 
+
+userController = {
 /**
 @desc User 註冊
   檢查 User 有無輸入資料（username、 password、email）
@@ -128,7 +126,6 @@ userController = {
             }
             const token = jwt.sign(role,key.screat,{ expiresIn: EXPIRES_IN })
             // https 增加使用 'secure'
-            // res.cookie('token', token, { maxAge: EXPIRES_IN, httpOnly: true, secure: true})
             res.cookie('token', token, { maxAge: EXPIRES_IN, httpOnly: false, secure: true})
             // http 可用
             // res.cookie('token', token, { maxAge: EXPIRES_IN, httpOnly: true })
@@ -190,13 +187,10 @@ userController = {
     if (flag === 'homeDesk') {
       if (avatar.length === '') {
         imgurLink = dbAvatar
-        // console.log('imgurLink1:', imgurLink)
       } else if(dbAvatar === avatar){
         imgurLink = dbAvatar
-        // console.log('imgurLink2:', imgurLink)
       } else if(dbAvatar !== avatar){
         imgurLink = await imgurAPI(avatar)
-        // console.log('imgurLink3:', imgurLink)
       }
     }
     await User.findByPk(reqId)

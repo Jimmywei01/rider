@@ -67,13 +67,10 @@ motohouseController = {
 
     if (image.length === '') {
       imgurLink = dbImage
-      // console.log('imgurLink1:', imgurLink)
     } else if(dbImage === image){
       imgurLink = dbImage
-      // console.log('imgurLink2:', imgurLink)
     } else if(dbImage !== image){
       imgurLink = await imgurAPI(image)
-      // console.log('imgurLink3:', imgurLink)
     }
 
     await Motohouse.findByPk(reqId)

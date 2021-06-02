@@ -1,5 +1,8 @@
 <template>
   <div>
+    <div class="header-container">
+        <div class="header-Img"></div>
+    </div>
     <div class="container">
       <FilterHomeMoto
       @update:filtMotoStore='handleFilterMotoStore'
@@ -51,6 +54,17 @@ export default {
 </script>
 
 <style scoped>
+.header-container {
+  height: 600px;
+}
+.header-Img {
+  background-image: url("../../assets/img/pexels-pixabay2.jpg");
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: cover;
+  min-height: 100%;
+  opacity: 0.9;
+}
 .container {
   max-width: 1400px;
   margin: 0 auto;

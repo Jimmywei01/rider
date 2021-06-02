@@ -49,7 +49,6 @@ router.beforeEach(async (to, from, next) => {
   const isLogin = await getToken()
   const { identity } = store.getters.user
 
-
   if (isLogin && identity !== 'user') {
     // 從 login 進入
     if (to.path === '/login') {

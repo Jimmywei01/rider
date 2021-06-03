@@ -31,7 +31,7 @@
 
 ## 簡介
 
-[Rider](https://github.com/Jimmywei01/rider) 是一個前后台練習專案，可讓您輕鬆預訂機車的線上平台，它基于 [vue](https://github.com/vuejs/vue)、[element-ui](https://github.com/ElemeFE/element)、[node.js](https://github.com/nodejs/Release)、[express](https://github.com/expressjs/express)、[mysql2](https://github.com/sidorares/node-mysql2) 和 [heroku](https://github.com/heroku/cli)實現。
+[Rider](https://github.com/Jimmywei01/rider) 是一個前後台練習專案，可讓您輕鬆預訂機車的線上平台，它基于 [vue](https://github.com/vuejs/vue)、[element-ui](https://github.com/ElemeFE/element)、[node.js](https://github.com/nodejs/Release)、[express](https://github.com/expressjs/express)、[mysql2](https://github.com/sidorares/node-mysql2) 和 [heroku](https://github.com/heroku/cli)實現。
 
 - [在線預覽](https://riderwing.herokuapp.com/)
 

@@ -126,7 +126,7 @@ userController = {
             }
             const token = jwt.sign(role,key.screat,{ expiresIn: EXPIRES_IN })
             // https 增加使用 'secure'
-            res.cookie('token', token, { maxAge: EXPIRES_IN, httpOnly: false, secure: true})
+            res.cookie('token', token, { maxAge: EXPIRES_IN, httpOnly: true, secure: true, domin: 'https://riderwing.herokuapp.com/'})
             // http 可用
             // res.cookie('token', token, { maxAge: EXPIRES_IN, httpOnly: true })
             res.json({

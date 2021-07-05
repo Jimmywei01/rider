@@ -1,76 +1,76 @@
 <template>
-  <div class="memberArea">
-    <FilterPlan @update:filtIdentity="handleFilterIdentity" @update:filtEmail="handleFilterEmail" />
+  <div class='memberArea'>
+    <FilterPlan @update:filtIdentity='handleFilterIdentity' @update:filtEmail='handleFilterEmail'/>
     <section class="form_container">
-      <el-table type="flex" justify="center" align="middle" :data="tableData" max-height="450">
-        <el-table-column label="建立日期" prop="createdAt" align="center" width="180">
-          <template slot-scope="{ row }">
+      <el-table
+        type="flex" justify="center" align="middle"
+        :data="tableData"
+        max-height="450">
+        <el-table-column
+          label="建立日期"
+          prop='createdAt'
+          align='center'
+          width="180">
+          <template slot-scope="{row}">
             <i class="el-icon-time"></i>
             <span style="margin-left: 10px">{{ row.createdAt.slice(0, 10) }}</span>
           </template>
         </el-table-column>
 
-        <el-table-column label="姓名" align="center" width="180">
-          <template slot-scope="{ row }">
-            <p>{{ row.username }}</p>
+        <el-table-column
+          label="姓名"
+          align='center'
+          width="180">
+          <template slot-scope="{row}">
+              <p>{{ row.username }}</p>
           </template>
         </el-table-column>
 
-        <el-table-column label="權限" align="center" width="180">
-          <template slot-scope="{ row }">
-            <p>{{ row.identity }}</p>
+        <el-table-column
+          label="權限"
+          align='center'
+          width="180">
+          <template slot-scope="{row}">
+              <p>{{ row.identity }}</p>
           </template>
         </el-table-column>
 
-        <el-table-column label="Email" align="center" width="180">
-          <template slot-scope="{ row }">
-            <p>{{ row.email }}</p>
+        <el-table-column
+          label="Email"
+          align='center'
+          width="180">
+          <template slot-scope="{row}">
+              <p>{{ row.email }}</p>
           </template>
         </el-table-column>
 
-        <el-table-column label="電話" align="center" width="180">
-          <template slot-scope="{ row }">
-            <p>{{ row.phone }}</p>
+        <el-table-column
+          label="電話"
+          align='center'
+          width="180">
+          <template slot-scope="{row}">
+              <p>{{ row.phone }}</p>
           </template>
         </el-table-column>
-        <el-table-column v-if="user.identity === 'admin'" label="Actions" align="center" width="180">
-          <template slot-scope="{ row }">
-            <el-button size="mini" type="primary" class="btn" @click="handleEdit(row)">Edit </el-button>
-            <!-- <DialogFound :dialog="dialog" :form="form" @update:updateData="getUsers"></DialogFound> -->
-
-            <template slot="form" :dialog="dialog" :form="form" @update:updateData="getUsers">
-              <el-form :model="form" :rules="form_rules" ref="form">
-                <el-row>
-                  <el-col :span="12">
-                    <el-form-item label="姓名" prop="username" :label-width="formLabelWidth" placeholder="請輸入性名">
-                      <el-input v-model="form.username"></el-input>
-                    </el-form-item>
-                  </el-col>
-                  <el-col :span="12">
-                    <el-form-item label="權限" prop="identity" :label-width="formLabelWidth">
-                      <el-select v-model="form.identity" placeholder="請選擇權限">
-                        <el-option label="admin" value="admin"></el-option>
-                        <el-option label="editor" value="editor"></el-option>
-                        <el-option label="user" value="user"></el-option>
-                      </el-select>
-                    </el-form-item>
-                  </el-col>
-                </el-row>
-                <el-row>
-                  <el-col :span="12">
-                    <el-form-item label="Email" prop="email" :label-width="formLabelWidth">
-                      <el-input v-model="form.email" placeholder="請輸入電子信箱" type="email"></el-input>
-                    </el-form-item>
-                  </el-col>
-                  <el-col :span="12">
-                    <el-form-item label="電話" prop="phone" :label-width="formLabelWidth">
-                      <el-input v-model="form.phone" placeholder="請輸入電話" type="phone"></el-input>
-                    </el-form-item>
-                  </el-col>
-                </el-row>
-              </el-form>
-            </template>
-            <el-button size="mini" type="danger" class="btn" @click="handleDelete(row)">Delete </el-button>
+        <el-table-column
+          v-if='user.identity==="admin"'
+          label="Actions"
+          align='center'
+          width="180">
+          <template slot-scope="{row}">
+            <el-button
+              size="mini"
+              type="primary"
+              class="btn"
+              @click="handleEdit(row)">Edit
+            </el-button>
+            <DialogFound :dialog='dialog' :form='form' @update:updateData='getUsers'></DialogFound>
+            <el-button
+              size="mini"
+              type="danger"
+              class="btn"
+              @click="handleDelete(row)">Delete
+            </el-button>
           </template>
         </el-table-column>
       </el-table>
@@ -78,26 +78,25 @@
     <el-pagination
       background
       layout="prev, pager, next"
-      @current-change="handleCurrentChange"
-      :total="pagination.total"
-      :pageSize="pagination.pageSize"
-      :currentPage="pagination.currentPage"
-    >
+       @current-change="handleCurrentChange"
+      :total='pagination.total'
+      :pageSize='pagination.pageSize'
+      :currentPage='pagination.currentPage'>
     </el-pagination>
   </div>
 </template>
 
 <script>
 import FilterPlan from './components/FilterPlan'
-// import DialogFound from '@/components/DialogFound/memberDF'
+import DialogFound from '@/components/DialogFound/memberDF'
 import { setPage } from '@/utils/setPage'
 import { mapGetters } from 'vuex'
 
 export default {
   name: 'Member',
   components: {
-    FilterPlan
-    // DialogFound
+    FilterPlan,
+    DialogFound
   },
   data () {
     return {
@@ -127,17 +126,17 @@ export default {
     ...mapGetters(['user'])
   },
   /**
-    @desc 顯示已註冊人員
-    進入頁面先打 user API 拿到全部資料
-    @method
-      getUsers              得到全部資料
-      handleDelete          刪除單一資料
-      handleEdit            編輯單一資料
-      handleFilterIdentity  過濾權限資料
-      handleFilterEmail     過濾Email資料
-      setPagination         初始分頁設定
-      handleCurrentChange   分頁頁碼切換資料處理
-  */
+  @desc 顯示已註冊人員
+  進入頁面先打 user API 拿到全部資料
+  @method
+    getUsers              得到全部資料
+    handleDelete          刪除單一資料
+    handleEdit            編輯單一資料
+    handleFilterIdentity  過濾權限資料
+    handleFilterEmail     過濾Email資料
+    setPagination         初始分頁設定
+    handleCurrentChange   分頁頁碼切換資料處理
+*/
   methods: {
     async getUsers () {
       await this.$store.dispatch('member/getMembers')
@@ -169,16 +168,15 @@ export default {
     },
 
     async handleDelete (row) {
-      await this.$store
-        .dispatch('member/deleteMember', row.id)
-        .then((res) => {
+      await this.$store.dispatch('member/deleteMember', row.id)
+        .then(res => {
           this.$swal.fire({
             icon: 'success',
             title: '刪除成功'
           })
           this.getUsers(this.filterIdentity)
         })
-        .catch((error) => {
+        .catch(error => {
           if (error.data) {
             this.$swal.fire({
               icon: 'error',
@@ -226,28 +224,30 @@ export default {
     }
   }
 }
+
 </script>
 
 <style lang="scss" scoped>
-  .memberArea {
-    max-width: 1350px;
-  }
+
+.memberArea {
+  max-width: 1350px;
+}
+.form_container {
+  background-color: white;
+  margin-bottom: 25px;
+  border-radius: 5px;
+  text-align: center;
+  box-shadow: 0px 2px 10px #cccc;
+}
+
+.btn{
+  margin-right: 5px;
+  min-width: 60px;
+}
+
+@media screen and (max-width: 800px) {
   .form_container {
-    background-color: white;
-    margin-bottom: 25px;
-    border-radius: 5px;
-    text-align: center;
-    box-shadow: 0px 2px 10px #cccc;
+    width: 100%;
   }
-
-  .btn {
-    margin-right: 5px;
-    min-width: 60px;
-  }
-
-  @media screen and (max-width: 800px) {
-    .form_container {
-      width: 100%;
-    }
-  }
+}
 </style>
